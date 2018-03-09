@@ -1,0 +1,24 @@
+'use strict';
+
+const server = require('./server');
+const config = require('./config');
+const logger = require('./commons/lib/logger')(config);
+const mongo = require('./commons/lib/db');
+
+const init = async () => {
+  try {
+    const mongoConnect = await mongo.connect(config.db.url, config.db.dbName);
+    if (!mongoConnect) {
+      throw new Error('Mongo failed to connect');
+    }
+
+    await server.start();
+
+    logger.info(`App running on ${server.info.protocol}://${server.info.host}:${server.info.port}`);
+
+  } catch (error) {
+    logger.error(`App failed to start ${error.message}`);
+  }
+};
+
+init();

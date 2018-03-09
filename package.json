@@ -1,0 +1,86 @@
+{
+  "name": "authentication-api-v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "check": "depcheck --ignores husky,mochawesome,babel-cli,eslint-config-airbnb,eslint-plugin-jsx-a11y,eslint-plugin-react",
+    "start": "node index.js",
+    "pretest": "npm run lint && npm run check",
+    "test": "npm run test:coverage",
+    "test:all": "NODE_ENV=test npm run test:unit && npm run test:integration && npm run test:coverage",
+    "test:unit": "NODE_ENV=test mocha test/unit/**/*.spec.js",
+    "test:integration": "NODE_ENV=test mocha test/integration/**/*.spec.js",
+    "test:coverage": "NODE_ENV=test nyc --all mocha test/**/*.spec.js",
+    "lint": "eslint *.js .",
+    "lint:fix": "eslint --fix *.js .",
+    "dev": "NODE_ENV=development nodemon index.js",
+    "prepush": "npm test",
+    "precommit": "npm test"
+  },
+  "engines": {
+    "node": "^8.10.0",
+    "npm": "^5.6.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.1",
+    "boom": "^7.2.0",
+    "bunyan": "^1.8.12",
+    "dotenv": "^5.0.1",
+    "hapi": "^17.2.2",
+    "hapi-alive": "^2.0.0",
+    "hapi-swaggered": "^3.0.2",
+    "hapi-swaggered-ui": "^3.0.1",
+    "inert": "^5.1.0",
+    "lodash": "^4.17.5",
+    "mongodb": "^3.0.4",
+    "uuid": "^3.2.1",
+    "vision": "^5.3.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "depcheck": "^0.6.9",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "husky": "^0.14.3",
+    "mocha": "^5.0.4",
+    "nock": "^9.2.3",
+    "nodemon": "^1.17.1",
+    "nyc": "^11.4.1",
+    "sinon": "^4.4.2",
+    "supertest": "^3.0.0"
+  },
+  "nyc": {
+    "check-coverage": false,
+    "lines": 70,
+    "statements": 70,
+    "functions": 70,
+    "branches": 70,
+    "reporter": [
+      "text",
+      "text-summary",
+      "html",
+      "lcov"
+    ],
+    "reporting": {
+      "print": "both"
+    },
+    "include": [
+      "**/*.js"
+    ],
+    "exclude": [
+      "test-report/**/*",
+      "test/**/*",
+      "commons/**/*",
+      "coverage/**/*"
+    ]
+  }
+}
