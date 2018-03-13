@@ -1,5 +1,5 @@
 'use strict';
 
-const sayHi = require('./sayHi');
+const { sayHiWrapper } = require('./sayHi');
 
-exports.sayHi = dependencies => sayHi(dependencies);
+exports.sayHi = dependencies => sayHiWrapper(dependencies).sayHi();

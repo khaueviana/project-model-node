@@ -25,36 +25,42 @@ const validateServiceResponse = (sayHiServiceResponse) => {
   return true;
 };
 
-const sayHi = async ({
+const sayHiWrapper = ({
   logger,
   services,
   repository,
   onSuccess,
   onError,
 }) => {
-  try {
-    const { insert } = repository;
+  const sayHi = async () => {
+    try {
+      const { insert } = repository;
 
-    logger.warn(services.hello);
-    const saidSomething = await services.hello.sayHi();
+      logger.warn(services.hello);
+      const saidSomething = await services.hello.sayHi();
 
-    const serviceValidationResponse = validateServiceResponse(saidSomething);
-    if (serviceValidationResponse.fail) {
-      return onError(serviceValidationResponse);
+      const serviceValidationResponse = validateServiceResponse(saidSomething);
+      if (serviceValidationResponse.fail) {
+        return onError(serviceValidationResponse);
+      }
+
+      const savePayload = {
+        create_date: Date.now(),
+        saidSomething: _.get(saidSomething, 'message', ''),
+      };
+
+      const saved = await insertHiOnDatabase(insert)(savePayload);
+
+      return onSuccess(formatResponse(saved));
+    } catch (err) {
+      logger.error('Failed', err);
+      return onError(errorHandler.genericError(err));
     }
+  };
 
-    const savePayload = {
-      create_date: Date.now(),
-      saidSomething: _.get(saidSomething, 'message', ''),
-    };
-
-    const saved = await insertHiOnDatabase(insert)(savePayload);
-
-    return onSuccess(formatResponse(saved));
-  } catch (err) {
-    logger.error('Failed', err);
-    return onError(errorHandler.genericError(err));
-  }
+  return { sayHi };
 };
 
-module.exports = sayHi;
+module.exports = {
+  sayHiWrapper,
+};
