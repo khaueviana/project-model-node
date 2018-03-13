@@ -6,7 +6,7 @@ const sayHiWrapper = ({
   services,
   repository,
 }) => {
-  const sayHi = (request, reply) => adapters.sayHi({
+  const sayHi = (request, reply) => adapters({
     logger,
     services: {
       hello: services.hello,
@@ -18,7 +18,7 @@ const sayHiWrapper = ({
     repository: repository.saiHyRepository,
     onSuccess: data => reply.response(data).code(200),
     onError: err => reply.response(err).code(err.status_code),
-  });
+  }).sayHi();
 
   return {
     sayHi,

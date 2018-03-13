@@ -61,6 +61,4 @@ const sayHiWrapper = ({
   return { sayHi };
 };
 
-module.exports = {
-  sayHiWrapper,
-};
+module.exports = sayHiWrapper;
