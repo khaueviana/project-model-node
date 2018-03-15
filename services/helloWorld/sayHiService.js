@@ -3,13 +3,13 @@
 const axios = require('axios');
 const { handle } = require('../service-error-handler');
 
-const sayHiService = ({ config, logger }) => async () => {
-  const hi = async () => {
+const sayHiService = ({ config, logger }) => {
+  const hi = async (text) => {
     try {
       const URL = config.services.helloworld.host + config.services.helloworld.sayhi;
       await axios.get(URL, {}, {});
       return {
-        message: 'hi',
+        message: text,
       };
     } catch (error) {
       logger.error('sayHiServiceFailed to respond', error);
@@ -17,7 +17,7 @@ const sayHiService = ({ config, logger }) => async () => {
     }
   };
 
-  return hi();
+  return { hi };
 };
 
 module.exports = sayHiService;
