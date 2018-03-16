@@ -2,8 +2,8 @@
 
 const server = require('./server');
 const config = require('./config');
-const logger = require('./commons/lib/logger')(config);
-const mongo = require('./commons/lib/db');
+const logger = require('./commons/logger')(config);
+const mongo = require('./commons/db');
 
 const init = async () => {
   try {

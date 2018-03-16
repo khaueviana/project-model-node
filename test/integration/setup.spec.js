@@ -1,7 +1,7 @@
 'use strict';
 
 const config = require('../../config');
-const db = require('../../commons/lib/db');
+const db = require('../../commons/db');
 
 const connect = (done) => {
   db.connect(config.db.url)

@@ -1,7 +1,7 @@
 'use strict';
 
 const factory = require('./factory');
-const db = require('../../commons/lib/db');
+const db = require('../../commons/db');
 const config = require('../../config');
 
 

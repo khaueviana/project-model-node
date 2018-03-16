@@ -1,7 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
-const errorHandler = require('./errorHandler');
+const errorHandler = require('../../../commons/errorHandler');
 
 const formatResponse = hiOnDB => ({
   saidSomething: hiOnDB.saidSomething,

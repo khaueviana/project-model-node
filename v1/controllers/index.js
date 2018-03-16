@@ -5,7 +5,7 @@ const factory = require('./factory');
 const repository = require('../repository');
 const adapters = require('../adapters');
 const config = require('../../config');
-const logger = require('../../commons/lib/logger')(config);
+const logger = require('../../commons/logger')(config);
 const services = require('../../services');
 
 

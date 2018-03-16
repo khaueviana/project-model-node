@@ -3,7 +3,7 @@
 const uuid = require('uuid');
 const axios = require('axios');
 const config = require('../config');
-const logger = require('../commons/lib/logger')(config);
+const logger = require('../commons/logger')(config);
 
 const factory = require('./factory');
 
