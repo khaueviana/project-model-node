@@ -3,5 +3,5 @@
 const sayHiService = require('./sayHiService');
 
 module.exports = dependencies => ({
-  sayHi: sayHiService(dependencies).hi,
+  sayHiService: sayHiService(dependencies),
 });

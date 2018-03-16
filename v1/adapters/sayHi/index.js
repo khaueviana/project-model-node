@@ -36,8 +36,8 @@ const sayHiWrapper = ({
     try {
       const { insert } = repository;
 
-      logger.warn(services.hello);
-      const saidSomething = await services.hello.sayHi('HI PEOPLE');
+      logger.warn(services.sayHiService);
+      const saidSomething = await services.sayHiService.hi('HI PEOPLE');
 
       const serviceValidationResponse = validateServiceResponse(saidSomething);
       if (serviceValidationResponse.fail) {

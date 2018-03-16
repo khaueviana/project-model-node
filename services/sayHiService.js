@@ -1,7 +1,7 @@
 'use strict';
 
 const axios = require('axios');
-const { handle } = require('../service-error-handler');
+const { handle } = require('./service-error-handler');
 
 const sayHiService = ({ config, logger }) => {
   const hi = async (text) => {

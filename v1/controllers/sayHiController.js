@@ -9,7 +9,7 @@ const sayHiWrapper = ({
   const sayHi = (request, reply) => adapters({
     logger,
     services: {
-      hello: services.hello,
+      sayHiService: services.sayHiService,
     },
     payload: {
       ...request.payload,

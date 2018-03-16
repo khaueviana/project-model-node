@@ -5,6 +5,8 @@ const axios = require('axios');
 const config = require('../config');
 const logger = require('../commons/lib/logger')(config);
 
+const factory = require('./factory');
+
 const dependencies = {
   uuid,
   logger,
@@ -12,4 +14,4 @@ const dependencies = {
   config,
 };
 
-exports.hello = require('./helloWorld')(dependencies);
+module.exports = factory(dependencies);
