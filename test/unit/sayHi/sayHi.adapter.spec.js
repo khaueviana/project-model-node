@@ -32,7 +32,7 @@ describe('Unit tests', () => {
     });
 
     it('should be return a promise', () => {
-      expect(adapter(mockDependencies)).to.be.instanceOf(Promise);
+      expect(adapter(mockDependencies).sayHi).to.be.a('function');
     });
   });
 });

@@ -15,12 +15,12 @@ const removeAll = (done) => {
     .catch(done);
 };
 
-const teardown = (done) => {
-  db.disconnect()
-    .then(() => done())
-    .catch(done);
-};
+// const teardown = (done) => {
+//   db.disconnect()
+//     .then(() => done())
+//     .catch(done);
+// };
 
 before('DB connect', connect);
 beforeEach('RemoveAll', removeAll);
-//after('Teardown', teardown);
+// after('Teardown', teardown);

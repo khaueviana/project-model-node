@@ -29,7 +29,7 @@ describe('Integration Tests', () => {
         expect(result).to.have.property('lastHiOnDb');
 
         const expected = {
-          saidSomething: 'hi',
+          saidSomething: 'HI PEOPLE',
           lastHiOnDb: result.lastHiOnDb,
         };
 
