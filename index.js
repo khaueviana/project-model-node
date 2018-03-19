@@ -12,9 +12,11 @@ const init = async () => {
       throw new Error('Mongo failed to connect');
     }
 
-    await server.start();
+    const instance = await server;
 
-    logger.info(`App running on ${server.info.protocol}://${server.info.host}:${server.info.port}`);
+    await instance.start();
+
+    logger.info(`App running on ${instance.info.protocol}://${instance.info.host}:${instance.info.port}`);
 
   } catch (error) {
     logger.error(`App failed to start ${error.message}`);
