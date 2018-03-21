@@ -7,6 +7,14 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Launch Program",
+      "program": "${workspaceFolder}/index.js",
+      "outputCapture": "std",
+      "runtimeExecutable": "~/.nvm/versions/node/v8.10.0/bin/node"
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Mocha Tests",
       "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
       "args": [
@@ -18,14 +26,6 @@
         "${workspaceFolder}/test/unit/**/*.spec.js"
       ],
       "internalConsoleOptions": "openOnSessionStart"
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Launch Program",
-      "program": "${workspaceFolder}/index.js",
-      "outputCapture": "std",
-      "runtimeExecutable": "~/.nvm/versions/node/v8.10.0/bin/node"
     },
   ]
 }

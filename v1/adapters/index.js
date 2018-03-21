@@ -3,5 +3,9 @@
 const sayHiWrapper = require('./sayHi');
 
 module.exports = dependencies => ({
-  sayHi: sayHiWrapper(dependencies).sayHi,
+  sayHi: sayHiWrapper({
+    logger: dependencies.logger,
+    sayHiService: dependencies.services.sayHiService,
+    saiHyRepository: dependencies.repository.saiHyRepository,
+  }).sayHi,
 });

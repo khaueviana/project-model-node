@@ -27,17 +27,15 @@ const validateServiceResponse = (sayHiServiceResponse) => {
 
 const sayHiWrapper = ({
   logger,
-  services,
-  repository,
-  onSuccess,
-  onError,
+  sayHiService,
+  saiHyRepository,
 }) => {
-  const sayHi = async () => {
+  const sayHi = async ({ onSuccess, onError }) => {
     try {
-      const { insert } = repository;
+      const { insert } = saiHyRepository;
 
-      logger.warn(services.sayHiService);
-      const saidSomething = await services.sayHiService.hi('HI PEOPLE');
+      logger.warn(sayHiService);
+      const saidSomething = await sayHiService.hi('HI PEOPLE');
 
       const serviceValidationResponse = validateServiceResponse(saidSomething);
       if (serviceValidationResponse.fail) {

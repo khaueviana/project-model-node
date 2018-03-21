@@ -2,6 +2,6 @@
 
 const sayHiController = require('./sayHiController');
 
-module.exports = dependencies => ({
-  sayHi: sayHiController(dependencies).sayHi,
+module.exports = adapters => ({
+  sayHi: sayHiController(adapters).sayHi,
 });
