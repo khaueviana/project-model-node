@@ -40,7 +40,6 @@ describe('Integration Tests', () => {
 
     context('when HelloWorld fails', () => {
       let stubSayHiService;
-
       let request;
 
       before('mock apis', async () => {
