@@ -62,7 +62,7 @@
     "lines": 70,
     "statements": 70,
     "functions": 70,
-    "branches": 70,
+    "branches": 50,
     "reporter": [
       "text",
       "text-summary",
