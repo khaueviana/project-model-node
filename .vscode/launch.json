@@ -23,9 +23,10 @@
         "--timeout",
         "999999",
         "--colors",
-        "${workspaceFolder}/test/unit/**/*.spec.js"
+        "${workspaceFolder}/test/integration/**/*.spec.js"
       ],
-      "internalConsoleOptions": "openOnSessionStart"
+      "internalConsoleOptions": "openOnSessionStart",
+      "runtimeExecutable": "~/.nvm/versions/node/v8.10.0/bin/node"
     },
   ]
 }

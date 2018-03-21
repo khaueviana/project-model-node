@@ -2,17 +2,18 @@
 
 const { expect } = require('chai');
 const supertest = require('supertest');
-const server = require('../../server');
+let server = require('../../server');
 const stubServices = require('../stubs');
-
-const request = supertest(server.listener);
 
 describe('Integration Tests', () => {
   describe('GET /v1/helloWorld', () => {
     context('WHEN HelloWorld is successful - Happy Path', () => {
       let stubSayHiService;
+      let request;
 
-      before('mock apis', () => {
+      before('mock apis', async () => {
+        server = await server;
+        request = supertest(server.listener);
         stubSayHiService = stubServices.sayHiService.sayHiServiceSuccess();
       });
 
@@ -39,9 +40,12 @@ describe('Integration Tests', () => {
 
     context('when HelloWorld fails', () => {
       let stubSayHiService;
+      let request;
 
-      before('mock apis', () => {
+      before('mock apis', async () => {
         stubSayHiService = stubServices.sayHiService.sayHiServiceHardfail();
+        server = await server;
+        request = supertest(server.listener);
       });
 
       after('clear api mocks', () => {
@@ -56,9 +60,12 @@ describe('Integration Tests', () => {
 
     context('when Helloworld Softlyfails', () => {
       let stubSayHiService;
+      let request;
 
-      before('mock apis', () => {
+      before('mock apis', async () => {
         stubSayHiService = stubServices.sayHiService.sayHiServiceSoftfail();
+        server = await server;
+        request = supertest(server.listener);
       });
 
       after('clear api mocks', () => {
