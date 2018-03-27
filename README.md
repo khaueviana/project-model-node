@@ -1,6 +1,6 @@
 NODE_ENV=development
-DB_URL=mongodb://172.17.0.2:27017
-DB_URL_TEST=mongodb://172.17.0.2:27017
+DB_URL=mongodb://IP
+DB_URL_TEST=mongodb://IP
 DB_NAME=local
 
 DB_SAY_HI_COLLECTION_NAME=SayHi
